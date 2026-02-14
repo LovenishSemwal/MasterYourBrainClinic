@@ -10,15 +10,19 @@ import OurServices from './components/OurServices.jsx'
 import Assessment from './components/Assessment.jsx'
 import ContactUs from './components/ContactUs.jsx'
 import Booking from './components/Booking.jsx'
-
+import BookCover from './components/BookCover.jsx'  // Import BookCover
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <BookCover />  // BookCover is now the first page
+  },
   {
     path: "/",
     element: <App />,
     children: [
       {
-        path: "",
+        path: "home",  // Changed from "" to "home"
         element: (
           <>
            <Hero/>
@@ -50,15 +54,10 @@ const router = createBrowserRouter([
         path: "appointmentbooking",
         element: <Booking/>
       }
-     
-      
-            
     ]
   }
 ])
 
 createRoot(document.getElementById('root')).render(
-
   <RouterProvider router={router} />
-
 )
